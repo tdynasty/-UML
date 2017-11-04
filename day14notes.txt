@@ -1,0 +1,48 @@
+由客户端JSP界面传值到Servlet服务器端 可以把值放到隐藏域中：
+先放到隐藏域中：
+例如：
+var birthday="1996-09-25";
+document.createElement("input");
+input.type="hidden";//输入项内容
+input.name="birthday";//输入项的名字
+input.value=birthday
+document.getElementById("表单的id").appendChild(input);//把输入项挂到表单上一并提交
+
+在JSP中截取字符串：
+var a="123456789";
+a.substr(0,a.length-1);//a.substr(开始位置,截取长度);
+那么截取的是12345678
+
+在JSP界面中实现分层：
+<frameset row="25%,*>
+	<frame src="${pageContext.request.contextPath }/head.jsp" name="head">
+	<frame src="${pageContext.request.contextPath }/body.jsp" name="body">
+</frameset>
+在另一个jSp界面中：
+
+<a href="${pageContext.request.contextPath }/servlet/AddCustomerUIServlet" target="body">添加客户</a>
+<a href="${pageContext.request.contextPath }/servlet/ListCustomerServlet" target="body">查看客户</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
